@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './assets/css/App.scss';
 import StartPage from './components/startPage';
+import {GameHandler} from './components/gameHandler';
 
 class App extends Component {
   render() {
@@ -8,6 +9,7 @@ class App extends Component {
         <div className="App">
           <header className="App-body">
             <StartPage />
+            <GameHandler />
           </header>
         </div>
     );
