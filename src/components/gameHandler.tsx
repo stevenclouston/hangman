@@ -7,38 +7,34 @@ import GameWindow from './gameWindow';
 import { GAME_IN_PROGRESS } from '../constants/pages';
 import { RESET_GAME } from '../constants/actionTypes';
 
-interface Props
-{
-    app: any
+interface Props {
+  app: any;
 }
 
 export class GameHandler extends Component<Props> {
-    render() {
+  render() {
+    const boardLayout = (
+      <Fade
+        {...{ timeout: { enter: 1000, exit: 0 } }}
+        in={this.props.app.page === GAME_IN_PROGRESS ? true : false}
+        mountOnEnter
+        unmountOnExit
+      >
+        <div>
+          <GameWindow>{<HangmanGame />}</GameWindow>
+        </div>
+      </Fade>
+    );
 
-        const boardLayout = (
-            <Fade
-                {...{ timeout: { enter: 1000, exit: 0 } }}
-                in={this.props.app.page === GAME_IN_PROGRESS ? true : false}
-                mountOnEnter
-                unmountOnExit
-            >
-                <div>
-                    <GameWindow>
-                        {<HangmanGame/>}
-                    </GameWindow>
-                </div>
-            </Fade>
-        );
-
-        return boardLayout;
-    }
+    return boardLayout;
+  }
 }
 
 const mapStateToProps = (state: any) => ({
-    app: state.app
+  app: state.app
 });
 
 export default connect(
-    mapStateToProps,
-    null
+  mapStateToProps,
+  null
 )(GameHandler);

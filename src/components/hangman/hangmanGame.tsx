@@ -6,7 +6,7 @@ import Hangman from './hangman';
 import { Fade } from '@material-ui/core';
 import { GAME_IN_PROGRESS } from '../../constants/pages';
 import LivesRemaining from './remainingLives';
-import {IHangmanGame} from '../../interfaces/IHangmanGame';
+import { IHangmanGame } from '../../interfaces/IHangmanGame';
 
 interface Props {
   // createWords: any
@@ -28,13 +28,11 @@ class HangmanGame extends Component<Props> implements IHangmanGame {
           </div>
         </div>
       </Fade>
-    )
+    );
   }
-
 }
 
-const mapDispatchToProps = (dispatch: any) => ({
-});
+const mapDispatchToProps = (dispatch: any) => ({});
 
 export default connect(
   null,
