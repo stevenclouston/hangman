@@ -3,15 +3,17 @@ import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import Fade from '@material-ui/core/Fade';
 import { START_PAGE } from '../constants/pages';
+import {START_GAME_ASYNC} from '../constants/actionTypes';
 
 interface Props
 {
-    app: any
+    app: any,
+    startGame: any
 }
 
 class StartPage extends Component<Props> {
     selectPlayButtonClick = () => {
-        // this.props.startGame();
+        this.props.startGame();
     };
 
     render() {
@@ -45,9 +47,9 @@ const mapStateToProps = (state: any) => ({
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-    // startGame: () => {
-    //     dispatch({ type: START_GAME_ASYNC });
-    // }
+    startGame: () => {
+        dispatch({ type: START_GAME_ASYNC });
+    }
 });
 
 export default connect(
