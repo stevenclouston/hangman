@@ -1,13 +1,15 @@
 import app from './reducers/app';
 import words from './reducers/words';
 import keyboard from './reducers/keyboard';
+import gameContext from './reducers/gameContext';
 import { combineReducers } from 'redux';
 import { RESET_GAME } from './constants/actionTypes';
 
 const appReducer = combineReducers({
   app,
   words,
-  keyboard
+  keyboard,
+  gameContext
 });
 
 const rootReducer = (state: any, action: any) => {
