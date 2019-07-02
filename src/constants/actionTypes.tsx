@@ -1,0 +1,3 @@
+export const UPDATE_PAGE = 'UPDATE_PAGE';
+export const UPDATE_LOADING_STATUS = 'UPDATE_LOADING_STATUS'
+export const RESET_GAME = 'RESET_GAME'
