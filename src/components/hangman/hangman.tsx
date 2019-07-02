@@ -9,6 +9,7 @@ import HangRope from './hangRope';
 import Fade from '@material-ui/core/Fade';
 import { START_PAGE } from '../../constants/pages';
 import { Paper } from '@material-ui/core';
+import '../../assets/css/hangman.scss';
 
 interface Props {}
 

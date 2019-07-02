@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import GameWindow from '../gameWindow';
+import GuessedWordDisplay from './guessedWordDisplay';
 import HangFrame from './hangFrame';
 import Hangman from './hangman';
+import Keyboard from '../input/keyboard';
 import { Fade } from '@material-ui/core';
 import { GAME_IN_PROGRESS } from '../../constants/pages';
-import LivesRemaining from './remainingLives';
 import { IHangmanGame } from '../../interfaces/IHangmanGame';
+import '../../assets/css/hangman.scss';
 
-interface Props {
-  // createWords: any
-}
+interface Props {}
 
 class HangmanGame extends Component<Props> implements IHangmanGame {
   render() {
@@ -22,10 +22,14 @@ class HangmanGame extends Component<Props> implements IHangmanGame {
         unmountOnExit
       >
         <div className="container">
+          <div className="box word-window">
+            <GuessedWordDisplay />
+          </div>
           <div className="box animations">
             <HangFrame />
             <Hangman />
           </div>
+          <Keyboard />
         </div>
       </Fade>
     );

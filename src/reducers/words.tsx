@@ -34,7 +34,6 @@ const updateCurrentWord = (state: any, action: any) => {
   };
 };
 const createDisplayWord = (state: any, action: any) => {
-  debugger;
   const { currentWord } = action;
 
   const displayWord = new Array(currentWord.length - 1).fill(null);

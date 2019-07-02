@@ -5,11 +5,20 @@ import {
   UPDATE_LOADING_STATUS,
   CREATE_WORDS,
   UPDATE_CURRENT_WORD,
-  CREATE_DISPLAY_WORD
+  CREATE_DISPLAY_WORD,
+  CLICK_LETTER_ASYNC,
+  ADD_USED_LETTER,
+  UPDATE_DISPLAY_WORD
 } from '../constants/actionTypes';
 import { GAME_IN_PROGRESS } from '../constants/pages';
 import { fetchWords } from '../apiCalls/api';
 import WordSelector from '../state_selectors/WordSelector';
+
+export function* clickLetterAsync(action: any) {
+  yield put({ type: ADD_USED_LETTER, payload: action });
+
+  yield put({ type: UPDATE_DISPLAY_WORD, payload: action });
+}
 
 export function* startGameAsync(action: any) {
   yield put({ type: UPDATE_PAGE, page: GAME_IN_PROGRESS });
@@ -33,6 +42,10 @@ export function* watchStartGameAsync() {
   yield takeEvery(START_GAME_ASYNC, startGameAsync);
 }
 
+export function* watchClickLetterAsync() {
+  yield takeEvery(CLICK_LETTER_ASYNC, clickLetterAsync);
+}
+
 export default function* rootSaga() {
-  yield all([watchStartGameAsync()]);
+  yield all([watchStartGameAsync(), watchClickLetterAsync()]);
 }
