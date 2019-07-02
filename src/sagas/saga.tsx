@@ -1,4 +1,4 @@
-import { all, takeEvery, put, call, select } from 'redux-saga/effects';
+import { all, takeEvery, put, call, select, delay } from 'redux-saga/effects';
 import {
   START_GAME_ASYNC,
   UPDATE_PAGE,
@@ -8,16 +8,44 @@ import {
   CREATE_DISPLAY_WORD,
   CLICK_LETTER_ASYNC,
   ADD_USED_LETTER,
-  UPDATE_DISPLAY_WORD
+  UPDATE_DISPLAY_WORD,
+  UPDATE_GAME_STATUS,
+  UPDATE_LIVES_REMAINING
 } from '../constants/actionTypes';
-import { GAME_IN_PROGRESS } from '../constants/pages';
+import { GAME_IN_PROGRESS, GAME_FINISHED } from '../constants/pages';
 import { fetchWords } from '../apiCalls/api';
 import WordSelector from '../state_selectors/WordSelector';
+import {
+  guessedEveryLetter,
+  incorrectGuess,
+  noLivesRemaining
+} from './sagaHelpers';
+import { WINNER, LOSER } from '../constants/gameStatus';
 
 export function* clickLetterAsync(action: any) {
   yield put({ type: ADD_USED_LETTER, payload: action });
 
   yield put({ type: UPDATE_DISPLAY_WORD, payload: action });
+
+  if (yield guessedEveryLetter()) {
+    yield put({ type: UPDATE_GAME_STATUS, gameStatus: WINNER });
+
+    yield delay(600);
+
+    yield put({ type: UPDATE_PAGE, page: GAME_FINISHED });
+  }
+
+  if (yield incorrectGuess(action)) {
+    yield put({ type: UPDATE_LIVES_REMAINING, change: -1 });
+  }
+
+  if (yield noLivesRemaining()) {
+    yield put({ type: UPDATE_GAME_STATUS, gameStatus: LOSER });
+
+    yield delay(600);
+
+    yield put({ type: UPDATE_PAGE, page: GAME_FINISHED });
+  }
 }
 
 export function* startGameAsync(action: any) {

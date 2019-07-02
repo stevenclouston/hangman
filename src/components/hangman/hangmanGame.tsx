@@ -9,6 +9,7 @@ import { Fade } from '@material-ui/core';
 import { GAME_IN_PROGRESS } from '../../constants/pages';
 import { IHangmanGame } from '../../interfaces/IHangmanGame';
 import '../../assets/css/hangman.scss';
+import LivesRemaining from './remainingLives';
 
 interface Props {}
 
@@ -29,6 +30,7 @@ class HangmanGame extends Component<Props> implements IHangmanGame {
             <HangFrame />
             <Hangman />
           </div>
+          <LivesRemaining />
           <Keyboard />
         </div>
       </Fade>
