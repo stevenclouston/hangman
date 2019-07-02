@@ -5,26 +5,26 @@ import { START_PAGE } from '../constants/pages';
 import { WINNER } from '../constants/gameStatus';
 
 interface Props {
-    gameContext?: any;
+  gameContext?: any;
 }
 
 class GameResult extends Component<Props> {
-    render() {
-        const winner = <h1>You Won!</h1>;
+  render() {
+    const winner = <h1>You Won!</h1>;
 
-        const loser = <h1>Game Over</h1>;
+    const loser = <h1>Game Over</h1>;
 
-        return (
-            <div>{this.props.gameContext.gameStatus === WINNER ? winner : loser}</div>
-        );
-    }
+    return (
+      <div>{this.props.gameContext.gameStatus === WINNER ? winner : loser}</div>
+    );
+  }
 }
 
 const mapStateToProps = (state: any) => ({
-    gameContext: state.gameContext
+  gameContext: state.gameContext
 });
 
 export default connect(
-    mapStateToProps,
-    null
+  mapStateToProps,
+  null
 )(GameResult);
