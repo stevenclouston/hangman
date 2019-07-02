@@ -30,7 +30,6 @@ export default (state = initialState, action: any) => {
             return updatePage(state, action);
         case UPDATE_LOADING_STATUS:
             return updateLoadingStatus(state, action);
-
         default:
             return state;
     }
