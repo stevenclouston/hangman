@@ -25,9 +25,10 @@ Currently, tests are not complete but more tests will be added shortly.
 1. Run `prettier --write "**/*.tsx"`
 
 ### Screens
-The start screen, where users select their team:
 
-![picture](readme_images/hangman.png)
+The game screen:
+
+![picture](readmeImages/hangman.png)
 
 ###Authors
 
