@@ -30,7 +30,7 @@ export function* clickLetterAsync(action: any) {
   if (yield guessedEveryLetter()) {
     yield put({ type: UPDATE_GAME_STATUS, gameStatus: WINNER });
 
-    yield delay(600);
+    yield delay(100);
 
     yield put({ type: UPDATE_PAGE, page: GAME_FINISHED });
   }
@@ -42,7 +42,7 @@ export function* clickLetterAsync(action: any) {
   if (yield noLivesRemaining()) {
     yield put({ type: UPDATE_GAME_STATUS, gameStatus: LOSER });
 
-    yield delay(600);
+    yield delay(100);
 
     yield put({ type: UPDATE_PAGE, page: GAME_FINISHED });
   }
