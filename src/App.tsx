@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './assets/css/App.scss';
 import StartPage from './components/startPage';
-import {GameHandler} from './components/gameHandler';
+import GameHandler from './components/gameHandler';
 
 class App extends Component {
   render() {

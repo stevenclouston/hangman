@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Fade from '@material-ui/core/Fade';
 import Grid from '@material-ui/core/Grid';
+import HangmanGame from './hangman/hangmanGame';
 import GameWindow from './gameWindow';
 import { GAME_IN_PROGRESS } from '../constants/pages';
 import { RESET_GAME } from '../constants/actionTypes';
 
 interface Props
 {
-    page? : string
+    app: any
 }
 
 export class GameHandler extends Component<Props> {
@@ -17,13 +18,13 @@ export class GameHandler extends Component<Props> {
         const boardLayout = (
             <Fade
                 {...{ timeout: { enter: 1000, exit: 0 } }}
-                in={this.props.page === GAME_IN_PROGRESS ? true : false}
+                in={this.props.app.page === GAME_IN_PROGRESS ? true : false}
                 mountOnEnter
                 unmountOnExit
             >
                 <div>
                     <GameWindow>
-
+                        {<HangmanGame/>}
                     </GameWindow>
                 </div>
             </Fade>
@@ -34,10 +35,10 @@ export class GameHandler extends Component<Props> {
 }
 
 const mapStateToProps = (state: any) => ({
-    page: state.app.page
+    app: state.app
 });
 
-export default  connect(
+export default connect(
     mapStateToProps,
     null
 )(GameHandler);
