@@ -1,3 +1,7 @@
+:root {
+  --dark-color:#233237;
+}
+
 .App {
   text-align: center;
 }
@@ -8,8 +12,8 @@
   pointer-events: none;
 }
 
-.App-header {
-  background-color: #282c34;
+.App-body {
+  background-color: #EAC67A;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -30,4 +34,28 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+h1{
+  color: var(--dark-color);
+}
+
+h2{
+  color: var(--dark-color);
+}
+
+h3{
+  color: var(--dark-color);
+}
+
+h4{
+  color: var(--dark-color);
+}
+
+h5{
+  color: var(--dark-color);
+}
+
+h6{
+  color: var(--dark-color);
 }
