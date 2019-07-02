@@ -1,4 +1,8 @@
-import { UPDATE_LOADING_STATUS, UPDATE_PAGE } from '../constants/actionTypes';
+import {
+  CREATE_WORDS,
+  UPDATE_LOADING_STATUS,
+  UPDATE_PAGE
+} from '../constants/actionTypes';
 import { START_PAGE } from '../constants/pages';
 
 const initialState = {
@@ -30,6 +34,7 @@ export default (state = initialState, action: any) => {
       return updatePage(state, action);
     case UPDATE_LOADING_STATUS:
       return updateLoadingStatus(state, action);
+
     default:
       return state;
   }

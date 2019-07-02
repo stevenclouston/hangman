@@ -6,6 +6,7 @@ import HangmanGame from './hangman/hangmanGame';
 import GameWindow from './gameWindow';
 import { GAME_IN_PROGRESS } from '../constants/pages';
 import { RESET_GAME } from '../constants/actionTypes';
+import Loader from './loader';
 
 interface Props {
   app: any;
@@ -20,9 +21,7 @@ export class GameHandler extends Component<Props> {
         mountOnEnter
         unmountOnExit
       >
-        <div>
-          <GameWindow>{<HangmanGame />}</GameWindow>
-        </div>
+        <div>{this.props.app.loadingStatus ? <Loader /> : <HangmanGame />}</div>
       </Fade>
     );
 
