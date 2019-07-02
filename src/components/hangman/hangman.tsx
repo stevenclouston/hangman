@@ -11,7 +11,9 @@ import { START_PAGE } from '../../constants/pages';
 import { Paper } from '@material-ui/core';
 import '../../assets/css/hangman.scss';
 
-interface Props {}
+interface Props {
+  livesRemaining: number;
+}
 
 class Hangman extends React.Component<Props> {
   render() {
@@ -27,12 +29,22 @@ class Hangman extends React.Component<Props> {
           left: 0
         }}
       >
-        <HangRope />
-        <Head />
-        <HangmanBody>
-          <Arm side={'left'} />
-          <Arm side={'right'} />
-        </HangmanBody>
+        <Fade in={this.props.livesRemaining < 7 ? true : false}>
+          <HangRope />
+        </Fade>
+        <Fade in={this.props.livesRemaining < 6 ? true : false}>
+          <Head />
+        </Fade>
+        <Fade in={this.props.livesRemaining < 5 ? true : false}>
+          <HangmanBody>
+            <Fade in={this.props.livesRemaining < 4 ? true : false}>
+              <Arm side={'left'} />
+            </Fade>
+            <Fade in={this.props.livesRemaining < 3 ? true : false}>
+              <Arm side={'right'} />
+            </Fade>
+          </HangmanBody>
+        </Fade>
         <div
           style={{
             position: 'absolute',
@@ -41,15 +53,21 @@ class Hangman extends React.Component<Props> {
             marginLeft: `${50 - 15}%`
           }}
         >
-          <Leg side={'left'} />
-          <Leg side={'right'} />
+          <Fade in={this.props.livesRemaining < 2 ? true : false}>
+            <Leg side={'left'} />
+          </Fade>
+          <Fade in={this.props.livesRemaining < 1 ? true : false}>
+            <Leg side={'right'} />
+          </Fade>
         </div>
       </div>
     );
   }
 }
 
-const mapStateToProps = (state: any) => ({});
+const mapStateToProps = (state: any) => ({
+  livesRemaining: state.gameContext.livesRemaining
+});
 
 export default connect(
   mapStateToProps,
