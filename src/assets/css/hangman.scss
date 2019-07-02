@@ -61,7 +61,16 @@
     justify-content: center;
   }
 
+  .word-window {
+    height: 120px;
+  }
+
+  .livesRemaining {
+    height: 50px;
+  }
+
   .animations {
     flex: 1;
+    position: relative;
   }
 }

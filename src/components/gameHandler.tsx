@@ -14,18 +14,20 @@ interface Props {
 
 export class GameHandler extends Component<Props> {
   render() {
-    const boardLayout = (
+    return (
       <Fade
         {...{ timeout: { enter: 1000, exit: 0 } }}
         in={this.props.app.page === GAME_IN_PROGRESS ? true : false}
         mountOnEnter
         unmountOnExit
       >
-        <div>{this.props.app.loadingStatus ? <Loader /> : <HangmanGame />}</div>
+        <div>
+          <GameWindow>
+            {this.props.app.loadingStatus ? <Loader /> : <HangmanGame />}
+          </GameWindow>
+        </div>
       </Fade>
     );
-
-    return boardLayout;
   }
 }
 
