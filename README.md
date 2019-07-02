@@ -30,7 +30,8 @@ The game screen:
 
 ![picture](readmeImages/hangman.png)
 
-###Authors
+
+### Authors
 
 * Steven Clouston
 
