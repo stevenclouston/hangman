@@ -1,4 +1,12 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Hangman
+
+### Play
+
+A working version of this project can be found here:
+
+
+
+This application is an implementation of the game Hangman.
 
 ### To run this locally: 
 
@@ -10,12 +18,21 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 1. Run `yarn test`
 
+Currently, tests are not complete but more tests will be added shortly.
+
 ### To run linter: 
 
 1. Run `prettier --write "**/*.tsx"`
 
-## Learn More
+### Screens
+The start screen, where users select their team:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![picture](readme_images/hangman.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+###Authors
+
+* Steven Clouston
+
+
+
+
