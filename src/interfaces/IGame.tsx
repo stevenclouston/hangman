@@ -1,4 +1,1 @@
-export abstract class IGame
-{
-
-}
+export abstract class IGame {}

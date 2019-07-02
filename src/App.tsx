@@ -6,12 +6,12 @@ import GameHandler from './components/gameHandler';
 class App extends Component {
   render() {
     return (
-        <div className="App">
-          <header className="App-body">
-            <StartPage />
-            <GameHandler />
-          </header>
-        </div>
+      <div className="App">
+        <header className="App-body">
+          <StartPage />
+          <GameHandler />
+        </header>
+      </div>
     );
   }
 }

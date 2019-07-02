@@ -1,3 +1,3 @@
-export const START_PAGE = 'START_PAGE'
-export const GAME_IN_PROGRESS = 'GAME_IN_PROGRESS'
-export const GAME_FINISHED = 'GAME_FINISHED'
+export const START_PAGE = 'START_PAGE';
+export const GAME_IN_PROGRESS = 'GAME_IN_PROGRESS';
+export const GAME_FINISHED = 'GAME_FINISHED';
