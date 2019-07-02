@@ -1,9 +1,11 @@
 import app from './reducers/app';
+import words from './reducers/words';
 import { combineReducers } from 'redux';
 import { RESET_GAME } from './constants/actionTypes';
 
 const appReducer = combineReducers({
-  app
+  app,
+  words
 });
 
 const rootReducer = (state: any, action: any) => {
